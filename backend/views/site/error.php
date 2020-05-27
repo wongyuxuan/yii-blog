@@ -9,19 +9,48 @@ use yii\helpers\Html;
 
 $this->title = $name;
 ?>
-<div class="site-error">
+<!-- Styles -->
+<style>
+    html, body {
+        background-color: #fff;
+        color: #636b6f;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 100;
+        height: 100vh;
+        margin: 0;
+    }
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    .full-height {
+        height: 100vh;
+    }
 
-    <div class="alert alert-danger">
-        <?= nl2br(Html::encode($message)) ?>
+    .flex-center {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .position-ref {
+        position: relative;
+    }
+
+    .code {
+        font-size: 26px;
+        padding: 0 15px 0 15px;
+        text-align: center;
+    }
+
+    .message {
+        font-size: 18px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+<div class="flex-center position-ref full-height">
+    <div class="code">
+       <?= nl2br(Html::encode($message)) ?>
     </div>
 
-    <p>
-        The above error occurred while the Web server was processing your request.
-    </p>
-    <p>
-        Please contact us if you think this is a server error. Thank you.
-    </p>
-
 </div>
+</body>
