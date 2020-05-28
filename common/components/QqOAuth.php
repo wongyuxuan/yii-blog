@@ -36,8 +36,9 @@ class QqOAuth extends OAuth2
         return [
             'client' => 'qq',
             'openid' => $this->user->openid,
-            'nickname' => $user['nickname'],
+            'username' => $user['nickname'],
             'gender' => $user['gender'],
+            'avatar' => $user['figureurl_qq_1'],
             'location' => $user['province'] . $user['city'],
         ];
     }

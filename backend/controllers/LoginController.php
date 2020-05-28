@@ -5,7 +5,7 @@ use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use common\models\LoginForm;
+use common\models\ThridForm;
 
 /**
  * Site controller
@@ -60,7 +60,8 @@ class LoginController extends Controller
     public function onAuthSuccess($client)
     {
         $attributes = $client->getUserAttributes();
-        var_dump($attributes);die;
+
+        $model = new ThridForm();
     }
 
     /**
@@ -74,14 +75,7 @@ class LoginController extends Controller
             return $this->goHome();
         }
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            $model->password = '';
-
-            return $this->render('login');
-        }
+        return $this->render('login');
     }
 
     /**

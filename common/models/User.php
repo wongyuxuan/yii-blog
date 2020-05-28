@@ -84,6 +84,17 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
+     * 通过OpenId获取用户信息
+     *
+     * @param $openid
+     * @return User|null
+     */
+    public static function findByOpenId($openid)
+    {
+        return static::findOne(['openid' => $openid, 'status' => self::STATUS_ACTIVE]);
+    }
+
+    /**
      * Finds user by password reset token
      *
      * @param string $token password reset token
