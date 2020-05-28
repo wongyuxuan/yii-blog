@@ -19,20 +19,6 @@ class LoginController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['aa'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['logout', 'index'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -76,7 +62,7 @@ class LoginController extends Controller
             return $this->goHome();
         }
 
-        return $this->render('login');
+        return $this->render('index');
     }
 
     /**
