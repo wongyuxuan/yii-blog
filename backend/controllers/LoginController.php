@@ -2,6 +2,7 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\authclient\OAuth2;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -22,7 +23,7 @@ class LoginController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index'],
+                        'actions' => ['aa'],
                         'allow' => true,
                     ],
                     [
@@ -57,7 +58,7 @@ class LoginController extends Controller
         ];
     }
 
-    public function onAuthSuccess($client)
+    public function onAuthSuccess(OAuth2 $client)
     {
         $attributes = $client->getUserAttributes();
 
