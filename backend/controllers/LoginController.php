@@ -49,6 +49,8 @@ class LoginController extends Controller
         $attributes = $client->getUserAttributes();
 
         $model = new ThridForm();
+
+        $model->scenarios('login');
     }
 
     /**
