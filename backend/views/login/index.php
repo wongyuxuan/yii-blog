@@ -24,7 +24,6 @@
             shade: false,
             area: ['500px', '400px'],
             content: '//test.wongyuxuan.com/site/auth?authclient=qq',
-
         });
 
     });
