@@ -48,7 +48,7 @@ class LoginController extends Controller
     {
         $attributes = $client->getUserAttributes();
 
-        var_dump($attributes);
+        var_dump($attributes);die;
 
         $model = new ThridForm();
 
