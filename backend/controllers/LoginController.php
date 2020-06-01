@@ -47,12 +47,10 @@ class LoginController extends Controller
     public function onAuthSuccess(OAuth2 $client)
     {
         $attributes = $client->getUserAttributes();
-
+        var_dump($attributes);die;
         $model = new ThridForm();
 
         $model->scenario = 'login';
-        $model->load($attributes);
-        var_dump($model);die;
         if($model->load($attributes) && $model->login()){
             $this->redirect('/site/index');
         }else{
