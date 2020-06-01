@@ -4,10 +4,27 @@
 namespace backend\controllers;
 
 
+use yii\filters\AccessControl;
 use yii\web\Controller;
 
 class SiteController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+          'access' => [
+              'class' => AccessControl::className(),
+              'only'  => ['index'],
+              'rules' => [
+                  [
+                      'allow' => false,
+                      'roles' => ['?']
+                  ]
+              ]
+          ]
+        ];
+    }
+
     public function actions()
     {
        return [

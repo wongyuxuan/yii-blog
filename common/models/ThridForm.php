@@ -49,6 +49,7 @@ class ThridForm extends Model
     {
         if(!$this->hasErrors()){
             $user = $this->getUser();
+            var_dump($user); die;
             if(!$user || !$user->role == 1){
                 $this->addError($attribute,'您不是管理员，无权登陆！');
             }
