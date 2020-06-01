@@ -51,6 +51,8 @@ class LoginController extends Controller
         $model = new ThridForm();
 
         $model->scenario = 'login';
+        $model->load($attributes);
+        var_dump($model);die;
         if($model->load($attributes) && $model->login()){
             $this->redirect('/site/index');
         }else{
