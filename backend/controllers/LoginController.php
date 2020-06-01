@@ -53,6 +53,9 @@ class LoginController extends Controller
         $model->scenario = 'login';
         if($model->load($attributes) && $model->login()){
             $this->redirect('/site/index');
+        }else{
+            $errors = $model->errors;
+            var_dump($errors);
         }
     }
 
