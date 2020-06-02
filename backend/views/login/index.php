@@ -11,7 +11,6 @@
     }
 </style>
 <?php $this->endBlock(); ?>
-
 <?php $this->beginBlock('script'); ?>
 <script>
     layui.use('layer', function(){ //独立版的layer无需执行这一句
@@ -23,7 +22,7 @@
             closeBtn: 0,
             shade: false,
             area: ['500px', '400px'],
-            content: '//test.wongyuxuan.com/site/auth?authclient=qq',
+            content: '//test.wongyuxuan.com/login/auth?authclient=qq',
         });
 
     });
