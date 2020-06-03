@@ -1,6 +1,7 @@
 <?php
 namespace backend\controllers;
 
+use common\models\User;
 use Yii;
 use yii\authclient\OAuth2;
 use yii\web\Controller;
@@ -13,21 +14,6 @@ use common\models\ThridForm;
  */
 class LoginController extends Controller
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -71,6 +57,7 @@ class LoginController extends Controller
         if(!$session->has('openid'))
         {
             $data['tip'] = 0;
+            $data['error'] = '';
             return $this->render('index',$data);
         }
 
@@ -82,8 +69,9 @@ class LoginController extends Controller
 
         //登录
         if($model->load($atttibutes,'') && $model->login()){
-            $this->redirect('/site/index');
+            return $this->goHome();
         }else{
+            $session->destroy();
             $data['tip'] = 1;
             $data['error'] = $model->getFirstError('openid');
             return  $this->render('index',$data);
