@@ -8,7 +8,7 @@ use yii\helpers\Url;
     layui.use('layer', function(){ //独立版的layer无需执行这一句
         var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
         window.parent.location.reload();
-        parent.layer.closeAll();
+        layer.closeAll();
     });
 </script>
 <?php $this->endBlock(); ?>
