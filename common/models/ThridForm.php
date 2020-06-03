@@ -18,6 +18,7 @@ class ThridForm extends Model
     const SCENARIO_REGISTER = 'register';
     public $openid;
     public $client;
+    public $rememberMe;
     private $_user;
 
     public function rules()
