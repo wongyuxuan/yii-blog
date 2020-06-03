@@ -5,6 +5,7 @@ namespace common\models;
 
 use Yii;
 use yii\base\Model;
+use yii\db\ActiveRecord;
 
 /**
  * 第三方模型
@@ -12,7 +13,7 @@ use yii\base\Model;
  * Class ThridLoginForm
  * @package common\models
  */
-class ThridForm extends Model
+class ThridForm extends ActiveRecord
 {
     const SCENARIO_LOGIN = 'login';
     const SCENARIO_REGISTER = 'register';
@@ -49,7 +50,6 @@ class ThridForm extends Model
     {
         if(!$this->hasErrors()){
             $user = $this->getUser();
-            var_dump($user); die;
             if(!$user || !$user->role == 1){
                 $this->addError($attribute,'您不是管理员，无权登陆！');
             }
