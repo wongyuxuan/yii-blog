@@ -32,7 +32,6 @@
     function login() {
         layui.use('layer', function(){ //独立版的layer无需执行这一句
             var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
-            layer.msg('123');
             layer.open({
                 type: 2,
                 title: false,
