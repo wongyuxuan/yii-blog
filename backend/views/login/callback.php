@@ -7,7 +7,7 @@ use yii\helpers\Url;
 <script>
     layui.use('layer', function(){ //独立版的layer无需执行这一句
         var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
-        window.parent.location.reload();
+        parent.location.reload();
         layer.closeAll();
     });
 </script>
