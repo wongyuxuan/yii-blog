@@ -18,6 +18,7 @@ class ThridForm extends ActiveRecord
     const SCENARIO_LOGIN = 'login';
     const SCENARIO_REGISTER = 'register';
     public $openid;
+    public $client;
     private $_user;
 
     public function rules()
@@ -50,7 +51,7 @@ class ThridForm extends ActiveRecord
     {
         if(!$this->hasErrors()){
             $user = $this->getUser();
-            if(!$user || !$user->role == 1){
+            if(!$user || !$user->openid == Yii::$app->params['adminOpenid']){
                 $this->addError($attribute,'您不是管理员，无权登陆！');
             }
         }

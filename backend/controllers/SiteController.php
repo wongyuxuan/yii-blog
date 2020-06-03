@@ -11,18 +11,20 @@ class SiteController extends Controller
 {
     public function behaviors()
     {
-        return [
-          'access' => [
-              'class' => AccessControl::className(),
-              'only'  => ['index'],
-              'rules' => [
-                  [
-                      'allow' => false,
-                      'roles' => ['?']
-                  ]
-              ]
-          ]
-        ];
+       return [
+           'access' => [
+               'class' => AccessControl::className(),
+               'only' => ['index','welcome'],
+               'rules' => [
+                   // 允许认证用户
+                   [
+                       'allow' => false,
+                       'actions' => ['index'],
+                       'roles' => ['@'],
+                   ],
+               ]
+           ]
+       ];
     }
 
     public function actions()

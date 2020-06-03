@@ -39,21 +39,21 @@ class LoginController extends Controller
             ],
             'auth' => [
                 'class' => 'yii\authclient\AuthAction',
-                'successCallback' => [$this,'onAuthSuccess']
+                'successCallback' => [$this,'actionCallback']
             ]
         ];
     }
 
-    public function onAuthSuccess(OAuth2 $client)
+    public function actionCallback(OAuth2 $client)
     {
         $attributes = $client->getUserAttributes();
 
-        $model = new ThridForm();
+        //qq登录成功设置session
+        $session = Yii::$app->session;
+        if(array_key_exists('openid',$attributes))  $session->set('openid',$attributes['openid']);
 
-        $model->scenario = 'login';
-        if($model->load($attributes) && $model->login()){
-            $this->redirect('/site/index');
-        }
+        return $this->render('callback');
+
     }
 
     /**
@@ -66,8 +66,29 @@ class LoginController extends Controller
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
+        //判断session是否存在openid
+        $session = Yii::$app->session;
+        if(!$session->has('openid'))
+        {
+            $data['tip'] = 0;
+            return $this->render('index',$data);
+        }
 
-        return $this->render('index');
+        $openid = $session->get('openid');
+        $atttibutes['openid'] = $openid;
+
+        $model = new ThridForm();
+        $model->scenario = $model::SCENARIO_LOGIN;
+
+        //登录
+        if($model->load($atttibutes,'') && $model->login()){
+            $this->redirect('/site/index');
+        }else{
+            $data['tip'] = 1;
+            $data['error'] = $model->getFirstError('openid');
+            return  $this->render('index',$data);
+        }
+
     }
 
     /**
