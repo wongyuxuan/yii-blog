@@ -25,12 +25,12 @@ class LoginController extends Controller
             ],
             'auth' => [
                 'class' => 'yii\authclient\AuthAction',
-                'successCallback' => [$this,'actionCallback']
+                'successCallback' => [$this,'successCallback']
             ]
         ];
     }
 
-    public function actionCallback(OAuth2 $client)
+    public function successCallback(OAuth2 $client)
     {
         $attributes = $client->getUserAttributes();
 
@@ -38,8 +38,13 @@ class LoginController extends Controller
         $session = Yii::$app->session;
         if(array_key_exists('openid',$attributes))  $session->set('openid',$attributes['openid']);
 
-        return $this->render('callback');
+        return $this->redirect('/login/callback');
 
+    }
+    
+    public function actionCallback()
+    {
+        return $this->render('callback');
     }
 
     /**
