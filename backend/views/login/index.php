@@ -27,17 +27,14 @@
     });
 
     function login() {
-        layui.use('layer', function(){ //独立版的layer无需执行这一句
-            var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
-            layer.open({
-                type: 2,
-                title: false,
-                shadeClose: false,
-                closeBtn: 0,
-                shade: false,
-                area: ['500px', '400px'],
-                content: '//test.wongyuxuan.com/login/auth?authclient=qq',
-            });
+        layer.open({
+            type: 2,
+            title: false,
+            shadeClose: false,
+            closeBtn: 0,
+            shade: false,
+            area: ['500px', '400px'],
+            content: '//test.wongyuxuan.com/login/auth?authclient=qq',
         });
     }
 </script>
