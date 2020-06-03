@@ -19,8 +19,8 @@
         layui.use('layer',function () {
             var layer = layui.layer;
             if(tip == 1){
-                var msg = <?= $error ?>;
-                layer.msg(msg,function () {
+                var msg = '<?= $error ?>';
+                layer.msg('msg',function () {
                     login()
                 });
             }
