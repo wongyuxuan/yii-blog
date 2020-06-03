@@ -71,6 +71,7 @@ class LoginController extends Controller
         if($model->load($atttibutes,'') && $model->login()){
             $this->redirect('/site/index');
         }else{
+            $session->destroy();
             $data['tip'] = 1;
             $data['error'] = $model->getFirstError('openid');
             return  $this->render('index',$data);
