@@ -2,7 +2,6 @@
     $this->title = '登录';
     use yii\helpers\Url;
 ?>
-
 <?php $this->beginBlock('style'); ?>
 <style>
     body{
