@@ -69,7 +69,7 @@ class LoginController extends Controller
 
         //登录
         if($model->load($atttibutes,'') && $model->login()){
-            return $this->redirect('/site/index');
+            return $this->goHome();
         }else{
             $session->destroy();
             $data['tip'] = 1;
