@@ -72,6 +72,7 @@ class LoginController extends Controller
         if(!$session->has('openid'))
         {
             $data['tip'] = 0;
+            $data['error'] = '';
             return $this->render('index',$data);
         }
 

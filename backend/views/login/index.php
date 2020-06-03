@@ -13,18 +13,35 @@
 <?php $this->endBlock(); ?>
 <?php $this->beginBlock('script'); ?>
 <script>
-    layui.use('layer', function(){ //独立版的layer无需执行这一句
-        var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
-        layer.open({
-            type: 2,
-            title: false,
-            shadeClose: false,
-            closeBtn: 0,
-            shade: false,
-            area: ['500px', '400px'],
-            content: '//test.wongyuxuan.com/login/auth?authclient=qq',
-        });
+    $(function () {
+        var tip = <?= $tip ?>;
 
+        layui.use('layer',function () {
+            var layer = layui.layer;
+            if(tip == 1){
+                var msg = <?= $error ?>;
+                layer.msg(msg,function () {
+                    login()
+                });
+            }
+            login();
+        })
     });
+
+    function login() {
+        layui.use('layer', function(){ //独立版的layer无需执行这一句
+            var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+            layer.msg('123');
+            layer.open({
+                type: 2,
+                title: false,
+                shadeClose: false,
+                closeBtn: 0,
+                shade: false,
+                area: ['500px', '400px'],
+                content: '//test.wongyuxuan.com/login/auth?authclient=qq',
+            });
+        });
+    }
 </script>
 <?php $this->endBlock(); ?>
