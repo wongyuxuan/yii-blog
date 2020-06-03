@@ -18,13 +18,14 @@
 
         layui.use('layer',function () {
             var layer = layui.layer;
-            if(tip == 1){
+            if(tip == 0){
                 var msg = '<?= $error ?>';
-                layer.msg('msg',function () {
-                    login()
+                layer.msg(msg,function () {
+                    login();
                 });
+            }else{
+                login();
             }
-            login();
         })
     });
 
