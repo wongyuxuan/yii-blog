@@ -18,8 +18,7 @@ class SiteController extends Controller
                'rules' => [
                    // 允许认证用户
                    [
-                       'allow' => false,
-                       'actions' => ['index'],
+                       'allow' => true,
                        'roles' => ['@'],
                    ],
                ]
