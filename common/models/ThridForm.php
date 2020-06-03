@@ -5,7 +5,6 @@ namespace common\models;
 
 use Yii;
 use yii\base\Model;
-use yii\db\ActiveRecord;
 
 /**
  * 第三方模型
@@ -13,7 +12,7 @@ use yii\db\ActiveRecord;
  * Class ThridLoginForm
  * @package common\models
  */
-class ThridForm extends ActiveRecord
+class ThridForm extends Model
 {
     const SCENARIO_LOGIN = 'login';
     const SCENARIO_REGISTER = 'register';
