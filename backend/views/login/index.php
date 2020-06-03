@@ -12,20 +12,18 @@
 <?php $this->endBlock(); ?>
 <?php $this->beginBlock('script'); ?>
 <script>
-    $(function () {
-        var tip = <?= $tip ?>;
 
-        layui.use('layer',function () {
-            var layer = layui.layer;
-            if(tip == 1){
-                var msg = '<?= $error ?>';
-                layer.msg(msg,function () {
-                    login();
-                });
-            }else{
+    layui.use('layer',function () {
+        var tip = <?= $tip ?>;
+        var layer = layui.layer;
+        if(tip == 0){
+            var msg = '<?= $error ?>';
+            layer.msg(msg,function () {
                 login();
-            }
-        })
+            });
+        }else{
+            login();
+        }
     });
 
     function login() {
