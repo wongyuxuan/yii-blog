@@ -61,8 +61,15 @@ class User extends \yii\db\ActiveRecord
         ];
     }
 
-    public function addUser()
+    /**
+     *
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public function userList()
     {
-
+      return  static::find()
+                ->select(['id','openid'])
+                ->asArray()
+                ->all();
     }
 }

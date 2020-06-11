@@ -8,7 +8,7 @@ AppAsset::register($this);
 <html  class="x-admin-sm">
 <head>
     <meta charset="UTF-8">
-    <title>后台登录-X-admin2.1</title>
+    <title>博客管理系统</title>
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -64,9 +64,9 @@ AppAsset::register($this);
                 </a>
                 <ul class="sub-menu">
                     <li date-refresh="1">
-                        <a _href="<?= Url::to(['admin/list']) ?>">
+                        <a _href="<?= Url::to(['user/list']) ?>">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>会员列表(静态表格)</cite>
+                            <cite>会员列表</cite>
 
                         </a>
                     </li >
