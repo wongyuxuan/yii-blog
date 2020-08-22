@@ -16,4 +16,13 @@ class UserController extends Controller
     {
         return $this->render('list');
     }
+
+    /**
+     * 用户添加
+     * @return string
+     */
+    public function actionAdd()
+    {
+        return $this->render('add');
+    }
 }

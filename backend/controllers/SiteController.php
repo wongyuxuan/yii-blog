@@ -54,4 +54,9 @@ class SiteController extends Controller
     {
         return $this->render('welcome');
     }
+
+    public function actionAddress()
+    {
+        return $this->render('address');
+    }
 }
